@@ -17,6 +17,7 @@ module.exports = {
      * @param {CommandInteraction} interaction 
      */
     execute(interaction) {
+        if (interaction.channel.name !== 'test') return interaction.reply({ content: "Thos command is now in developer mode.", ephemeral: true })
         interaction.reply({ content: "PONG", ephemeral: true })
     }
 }

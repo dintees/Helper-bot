@@ -1,7 +1,7 @@
 const { MessageEmbed, MessageActionRow, MessageButton, CommandInteraction } = require('discord.js')
 
 module.exports = {
-    name: "proposals-form",
+    name: "error-form",
     description: "Modal with error form",
     permission: "ADMINISTRATOR",
 
@@ -16,7 +16,7 @@ module.exports = {
 
         const Row = new MessageActionRow().addComponents(
             new MessageButton()
-                .setCustomId("proposal-submit")
+                .setCustomId("error-submit")
                 .setStyle("PRIMARY")
                 .setLabel("Zgłoś błąd / propozycję")
         );
