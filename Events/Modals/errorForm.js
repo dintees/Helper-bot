@@ -11,6 +11,7 @@ module.exports = {
         const name = modal.getTextInputValue("error-form-name")
         const age = modal.getTextInputValue("error-form-age")
         const description = modal.getTextInputValue("error-form-description")
+        const reason = modal.getSelectMenuValues("error-form-reason")
 
         if (isNaN(age)) return modal.followUp({ embeds: [new MessageEmbed().setColor("RED").setDescription("Age is a number, please provide it as such.")] })
 
@@ -43,6 +44,7 @@ module.exports = {
                             { name: "Autor zgłoszenia", value: `@${modal.user.tag}`, inline: true },
                             { name: "Imię i nazwisko", value: name, inline: true },
                             { name: "Wiek", value: age, inline: true },
+                            { name: "Powód", value: reason[0] },
                             { name: "Opis", value: description }
                         )
                         .setAuthor({ name: modal.user.tag, iconURL: modal.user.displayAvatarURL({ dynamic: true }) })
