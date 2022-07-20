@@ -4,7 +4,7 @@ const dotenv = require('dotenv')
 
 dotenv.config()
 
-const client = new Client({ intents: [Intents.FLAGS.GUILDS] });
+const client = new Client({ intents: [Intents.FLAGS.GUILDS, "GUILD_MEMBERS"] });
 discordModals(client)
 
 client.commands = new Collection();
