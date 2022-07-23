@@ -21,7 +21,7 @@ module.exports = async (client) => {
             client.on(event.name, (...args) => event.execute(...args, client))
         }
 
-        await Table.addRow(event.name, "✔ SUCCESSFUL")
+        await Table.addRow(event.name, "✅ LOADED")
     })
 
     console.log(Table.toString());

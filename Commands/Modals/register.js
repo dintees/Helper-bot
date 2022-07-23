@@ -10,6 +10,7 @@ module.exports = {
      * @param {CommandInteraction} interaction 
      */
     execute(interaction) {
+        // if(!interaction.member.permissions.has("ADMINISTRATOR")) return;
         const embed = new MessageEmbed()
             .setDescription("Regulamin:\n**1.** ...\ncdn...")
             .setColor("BLUE")

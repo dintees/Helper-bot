@@ -37,18 +37,25 @@ module.exports = {
                     .setLabel("Zamknij zgłoszenie")
             );
 
-            proposalsChannel.send({
-                embeds: [
-                    new MessageEmbed().setColor("BLUE")
-                        .addFields(
-                            { name: "Autor zgłoszenia", value: `@${modal.user.tag}`, inline: true },
-                            { name: "Imię i nazwisko", value: name, inline: true },
-                            { name: "Wiek", value: age, inline: true },
-                            { name: "Powód", value: reason[0] },
-                            { name: "Opis", value: description }
-                        )
-                        .setAuthor({ name: modal.user.tag, iconURL: modal.user.displayAvatarURL({ dynamic: true }) })
-                ], components: [Row]
+            const Embed = new MessageEmbed().setColor("BLUE")
+                .addFields(
+                    { name: "Autor zgłoszenia", value: `@${modal.user.tag}`, inline: true },
+                    { name: "Imię i nazwisko", value: name, inline: true },
+                    { name: "Wiek", value: age, inline: true },
+                    { name: "Powód", value: reason[0] },
+                    { name: "Opis", value: description }
+                )
+                .setAuthor({ name: modal.user.tag, iconURL: modal.user.displayAvatarURL({ dynamic: true }) })
+
+            await proposalsChannel.send({ embeds: [Embed], components: [Row] }).then(async msg => {
+                // add thread
+                const thread = await msg.startThread({
+                    name: reason[0],
+                    reason: description
+                })
+
+                // add members to the thread
+                await thread.members.add('570925710084931585'); //Bartko13
             })
         } else {
             // to user

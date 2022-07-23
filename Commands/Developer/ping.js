@@ -3,7 +3,7 @@ const { CommandInteraction } = require("discord.js");
 module.exports = {
     name: "ping",
     description: "Ping test command",
-    persmission: "ADMINISTRATOR",
+    // permission: "ADMINISTRATOR",
     // options: [
     //     {
     //         name: "input",
