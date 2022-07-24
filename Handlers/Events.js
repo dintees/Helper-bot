@@ -11,7 +11,7 @@ module.exports = async (client) => {
         const event = require(file)
         if (!Events.includes(event.name) || !event.name) {
             const L = file.split('/')
-            await Table.addRow(`${event.name || "MISSING"}`, `🟥 Event name is either invalid or missing: ${L[6] + '/' + L[7]}`)
+            await Table.addRow(`${event.name || "🟥 MISSING"}`, `Event name is either invalid or missing: ${L[6] + '/' + L[7]}`)
             return;
         }
 

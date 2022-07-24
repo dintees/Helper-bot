@@ -1,0 +1,7 @@
+{
+    "channelNames": {
+        "proposalsChannel": "errors",
+        "registerChannel": "rejestracja",
+        "announcementsChannel": "ogłoszenia"
+    }
+}

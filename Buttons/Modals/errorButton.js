@@ -20,6 +20,8 @@ module.exports = {
                 new TextInputComponent()
                     .setCustomId("error-form-age")
                     .setLabel("Podaj swój wiek")
+                    .setMinLength(1)
+                    .setMaxLength(2)
                     .setStyle("SHORT")
                     .setPlaceholder("Wiek")
                     .setRequired(true),

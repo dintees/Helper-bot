@@ -1,5 +1,5 @@
-const { Modal } = require('discord-modals')
 const { MessageEmbed, MessageActionRow, MessageButton } = require('discord.js')
+const { channelNames } = require('../../config.json');
 
 module.exports = {
     name: "modalSubmit",
@@ -15,8 +15,7 @@ module.exports = {
 
         if (isNaN(age)) return modal.followUp({ embeds: [new MessageEmbed().setColor("RED").setDescription("Age is a number, please provide it as such.")] })
 
-
-        const proposalsChannel = client.channels.cache.find(channel => channel.name === 'errors');
+        const proposalsChannel = client.channels.cache.find(channel => channel.name === channelNames.proposalsChannel);
 
         if (proposalsChannel) {
 
@@ -39,7 +38,7 @@ module.exports = {
 
             const Embed = new MessageEmbed().setColor("BLUE")
                 .addFields(
-                    { name: "Autor zgłoszenia", value: `@${modal.user.tag}`, inline: true },
+                    { name: "Autor zgłoszenia", value: `<@${modal.user.id}>`, inline: true },
                     { name: "Imię i nazwisko", value: name, inline: true },
                     { name: "Wiek", value: age, inline: true },
                     { name: "Powód", value: reason[0] },
