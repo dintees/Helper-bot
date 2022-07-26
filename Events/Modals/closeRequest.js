@@ -16,7 +16,7 @@ module.exports = {
 
         embed.addFields(
             { name: "Zamknięto przez", value: `<@${modal.user.id}>` },
-            { name: "Opis", value: description }
+            { name: "Opis", value: '`' + description + '`' }
         )
             .setColor("GREEN")
             .setTimestamp()

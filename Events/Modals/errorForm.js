@@ -41,8 +41,8 @@ module.exports = {
                     { name: "Autor zgłoszenia", value: `<@${modal.user.id}>`, inline: true },
                     { name: "Imię i nazwisko", value: name, inline: true },
                     { name: "Wiek", value: age, inline: true },
-                    { name: "Powód", value: reason[0] },
-                    { name: "Opis", value: description }
+                    { name: "Kategoria", value: reason[0] },
+                    { name: "Opis", value: '`' + description + '`' }
                 )
                 .setAuthor({ name: modal.user.tag, iconURL: modal.user.displayAvatarURL({ dynamic: true }) })
 
