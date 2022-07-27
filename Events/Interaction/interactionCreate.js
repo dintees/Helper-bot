@@ -10,6 +10,8 @@ module.exports = {
     async execute(interaction, client) {
         if (interaction.isCommand()) {
             const command = client.commands.get(interaction.commandName);
+            // console.log(interaction.channel.id);
+            // console.log(command.channels);
             if (!command) return interaction.reply({embeds: [
                 new MessageEmbed()
                 .setColor("RED")

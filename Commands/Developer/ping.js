@@ -2,12 +2,13 @@ const { CommandInteraction } = require("discord.js");
 
 module.exports = {
     name: "ping",
-    description: "Ping test command",
+    description: "Check bot ping",
+    channels: ['test'],
     // permission: "ADMINISTRATOR",
     // options: [
     //     {
     //         name: "input",
-    //         description: "pongg",
+    //         description: "pong",
     //         type: "STRING",
     //         required: true
     //     }
@@ -16,8 +17,8 @@ module.exports = {
      * 
      * @param {CommandInteraction} interaction 
      */
-    execute(interaction) {
-        if (interaction.channel.name !== 'test') return interaction.reply({ content: "Thos command is now in developer mode.", ephemeral: true })
-        interaction.reply({ content: "PONG", ephemeral: true })
+    execute(interaction, client) {
+        if (interaction.channel.name !== 'test') return interaction.reply({ content: "This command is now in developer mode.", ephemeral: true })
+        interaction.reply({ content: `PONG ${client.ws.ping} ms (API)`, ephemeral: true });
     }
 }

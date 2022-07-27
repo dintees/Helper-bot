@@ -14,6 +14,7 @@ module.exports = {
         const embed = new MessageEmbed()
             .setDescription("Regulamin:\n**1.** ...\ncdn...")
             .setColor("BLUE")
+            .setThumbnail('https://i.imgur.com/G2lLITB.png')
 
         const Row = new MessageActionRow().addComponents(
             new MessageButton()
