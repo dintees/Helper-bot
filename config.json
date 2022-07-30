@@ -1,6 +1,9 @@
 {
     "channelNames": {
         "proposalsChannel": "errors",
+        "suggestionsChannel": "suggestions",
+
+        "userSuggestionsChannel": "sugestie",
         "registerChannel": "rejestracja",
         "announcementsChannel": "ogłoszenia"
     }

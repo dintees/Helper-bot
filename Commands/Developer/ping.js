@@ -3,7 +3,7 @@ const { CommandInteraction } = require("discord.js");
 module.exports = {
     name: "ping",
     description: "Check bot ping",
-    channels: ['test'],
+    // channels: ['test'],
     // permission: "ADMINISTRATOR",
     // options: [
     //     {

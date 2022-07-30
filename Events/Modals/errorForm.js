@@ -45,9 +45,9 @@ module.exports = {
                     { name: "Opis", value: '`' + description + '`' }
                 )
                 .setAuthor({ name: modal.user.tag, iconURL: modal.user.displayAvatarURL({ dynamic: true }) })
-            
-                if (reason[0] == "Propozycja" || reason[0] == "Inne") Embed.setThumbnail('https://i.imgur.com/G2lLITB.png');
-                else Embed.setThumbnail('https://i.imgur.com/Ec34Ymy.png');
+
+            if (reason[0] == "Propozycja" || reason[0] == "Inne") Embed.setThumbnail('https://i.imgur.com/G2lLITB.png');
+            else Embed.setThumbnail('https://i.imgur.com/Ec34Ymy.png');
 
             await proposalsChannel.send({ embeds: [Embed], components: [Row] }).then(async msg => {
                 // add thread
@@ -57,7 +57,7 @@ module.exports = {
                 })
 
                 // add members to the thread
-                await thread.members.add('570925710084931585'); //Bartko13
+                await thread.members.add('570925710084931585'); // Bartko13
             })
         } else {
             // to user

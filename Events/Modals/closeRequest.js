@@ -7,7 +7,7 @@ module.exports = {
 
         const description = modal.getTextInputValue("close-request-description")
 
-        let embed = modal.message.embeds[0];
+        const embed = modal.message.embeds[0];
 
         // archive message threads
         const thread = modal.message.channel.threads.cache.find(t => t.id == modal.message.id);
