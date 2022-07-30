@@ -17,14 +17,14 @@ module.exports = {
                     .setLabel("Imię i nazwisko")
                     .setStyle("SHORT")
                     .setRequired(true),
-                new TextInputComponent()
-                    .setCustomId("error-form-age")
-                    .setLabel("Podaj swój wiek")
-                    .setMinLength(1)
-                    .setMaxLength(2)
-                    .setStyle("SHORT")
-                    .setPlaceholder("Wiek")
-                    .setRequired(true),
+                // new TextInputComponent()
+                //     .setCustomId("error-form-age")
+                //     .setLabel("Podaj swój wiek")
+                //     .setMinLength(1)
+                //     .setMaxLength(2)
+                //     .setStyle("SHORT")
+                //     .setPlaceholder("Wiek")
+                //     .setRequired(true),
                 new MessageSelectMenu()
                     .setCustomId("error-form-reason")
                     .setPlaceholder("Powód wysłania zgłoszenia")

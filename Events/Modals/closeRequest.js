@@ -15,7 +15,7 @@ module.exports = {
         // thread.forEach(t => t.setArchived(true))
 
         embed.addFields(
-            { name: "Zamknięto przez", value: `<@${modal.user.id}>` },
+            { name: "Zamknięte przez", value: `<@${modal.user.id}>` },
             { name: "Opis", value: '`' + description + '`' }
         )
             .setColor("GREEN")

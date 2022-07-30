@@ -9,9 +9,11 @@ module.exports = {
 
         let embed = interaction.message.embeds[0];
         embed.addFields({ name: "Zaakceptowane przez", value: '`' + interaction.user.username + '`' })
+            .setFooter({ text: "BW Helper" })
+            .setTimestamp()
         const message = await suggestionsChannel.send({ embeds: [embed], fetchReply: true });
-        message.react('✅');
-        message.react('❌');
+        message.react('👍');
+        message.react('👎');
 
         embed = interaction.message.embeds[0]
         embed.addFields({ name: "ID wiadomości", value: message.id })

@@ -9,11 +9,11 @@ module.exports = {
         await modal.deferReply({ ephemeral: true })
 
         const name = modal.getTextInputValue("error-form-name")
-        const age = modal.getTextInputValue("error-form-age")
+        // const age = modal.getTextInputValue("error-form-age")
         const description = modal.getTextInputValue("error-form-description")
         const reason = modal.getSelectMenuValues("error-form-reason")
 
-        if (isNaN(age)) return modal.followUp({ embeds: [new MessageEmbed().setColor("RED").setDescription("Age is a number, please provide it as such.")] })
+        // if (isNaN(age)) return modal.followUp({ embeds: [new MessageEmbed().setColor("RED").setDescription("Age is a number, please provide it as such.")] })
 
         const proposalsChannel = client.channels.cache.find(channel => channel.name === channelNames.proposalsChannel);
 
@@ -40,7 +40,7 @@ module.exports = {
                 .addFields(
                     { name: "Autor zgłoszenia", value: `<@${modal.user.id}>`, inline: true },
                     { name: "Imię i nazwisko", value: name, inline: true },
-                    { name: "Wiek", value: age, inline: true },
+                    // { name: "Wiek", value: age, inline: true },
                     { name: "Kategoria", value: reason[0] },
                     { name: "Opis", value: '`' + description + '`' }
                 )
