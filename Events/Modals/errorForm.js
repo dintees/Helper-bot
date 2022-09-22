@@ -11,7 +11,8 @@ module.exports = {
         const name = modal.getTextInputValue("error-form-name")
         // const age = modal.getTextInputValue("error-form-age")
         const description = modal.getTextInputValue("error-form-description")
-        const reason = modal.getSelectMenuValues("error-form-reason")
+        const reason = modal.getTextInputValue("error-form-reason")
+        // const reason = modal.getSelectMenuValues("error-form-reason")
 
         // if (isNaN(age)) return modal.followUp({ embeds: [new MessageEmbed().setColor("RED").setDescription("Age is a number, please provide it as such.")] })
 
@@ -41,18 +42,18 @@ module.exports = {
                     { name: "Autor zgłoszenia", value: `<@${modal.user.id}>`, inline: true },
                     { name: "Imię i nazwisko", value: name, inline: true },
                     // { name: "Wiek", value: age, inline: true },
-                    { name: "Kategoria", value: reason[0] },
+                    { name: "Kategoria", value: reason },
                     { name: "Opis", value: '`' + description + '`' }
                 )
                 .setAuthor({ name: modal.user.tag, iconURL: modal.user.displayAvatarURL({ dynamic: true }) })
 
-            if (reason[0] == "Propozycja" || reason[0] == "Inne") Embed.setThumbnail('https://i.imgur.com/G2lLITB.png');
+            if (reason == "Propozycja" || reason == "Inne") Embed.setThumbnail('https://i.imgur.com/G2lLITB.png');
             else Embed.setThumbnail('https://i.imgur.com/Ec34Ymy.png');
 
             await proposalsChannel.send({ embeds: [Embed], components: [Row] }).then(async msg => {
                 // add thread
                 const thread = await msg.startThread({
-                    name: reason[0],
+                    name: reason,
                     reason: description
                 })
 

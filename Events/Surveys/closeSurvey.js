@@ -8,8 +8,12 @@ module.exports = {
         if (modal.customId !== "close-survey-modal") return;
         await modal.deferReply({ ephemeral: true })
 
-        const closureType = modal.getSelectMenuValues('survey-closure-type')[0];
+        // const closureType = modal.getSelectMenuValues('survey-closure-type')[0];
+        // const closureTypes = ['voting', 'acceptance', 'rejection'];
+        const closureType = parseInt(modal.getTextInputValue('survey-closure-type'));
         const description = modal.getTextInputValue("survey-description");
+
+        if(isNaN(closureType) || (closureType < 1 || closureType > 3)) return modal.followUp({ embeds: [new MessageEmbed().setColor("RED").setDescription("Please choose number between 1 - 3")] })
 
         const suggestionsChannel = client.channels.cache.find(channel => channel.name === channelNames.userSuggestionsChannel);
         const messageID = modal.message.embeds[0].fields.find(f => f.name === "ID wiadomości").value;
@@ -19,7 +23,7 @@ module.exports = {
             const message = await suggestionsChannel.messages.fetch(messageID);
             const embed = message.embeds[0];
 
-            if (closureType === 'voting') {
+            if (closureType === 1) { // voting
                 const votesFor = message.reactions.cache.get('👍').count;
                 const votesAgainst = message.reactions.cache.get('👎').count;
 
@@ -35,14 +39,14 @@ module.exports = {
                     embed.setColor("RED");
                     // embed.setThumbnail('')
                 }
-            } else if (closureType === 'acceptance') {
+            } else if (closureType === 2) { // acceptance
                 embed.setColor("GREEN")
                     .setThumbnail('https://i.imgur.com/Wv4YZwu.png')
                     .addFields(
                         { name: 'Pełna akceptacja sugestii przez', value: '`' + modal.user.username + '`' },
                         { name: 'Podsumowanie', value: '`' + description + '`' }
                     );
-            } else {
+            } else { // rejection
                 embed.addFields(
                     { name: 'Odrzucenie sugestii przez', value: '`' + modal.user.username + '`' },
                     { name: 'Podsumowanie', value: '`' + description + '`' }

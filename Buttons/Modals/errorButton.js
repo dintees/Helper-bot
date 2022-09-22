@@ -25,15 +25,21 @@ module.exports = {
                 //     .setStyle("SHORT")
                 //     .setPlaceholder("Wiek")
                 //     .setRequired(true),
-                new MessageSelectMenu()
-                    .setCustomId("error-form-reason")
-                    .setPlaceholder("Powód wysłania zgłoszenia")
-                    .addOptions([
-                        { label: "Błąd bota", description: "Np brak komendy, błąd podczas wykonywania komendy, dziwne zachowanie bota itp...", value: "Błąd bota" },
-                        { label: "Bład serwera", description: "Brak roli, brak uprawnień, brak odpowiednich kanałów itp...", value: "błąd serwera" },
-                        { label: "Propozycja", description: "Propozycja polepszenia funkcjonalności serwera", value: "Propozycja" },
-                        { label: "Inne", description: "Inny powód, niewymieniony powyżej", value: "Inne" }
-                    ]),
+                // new MessageSelectMenu()
+                //     .setCustomId("error-form-reason")
+                //     .setPlaceholder("Powód wysłania zgłoszenia")
+                //     .addOptions([
+                //         { label: "Błąd bota", description: "Np brak komendy, błąd podczas wykonywania komendy, dziwne zachowanie bota itp...", value: "Błąd bota" },
+                //         { label: "Bład serwera", description: "Brak roli, brak uprawnień, brak odpowiednich kanałów itp...", value: "błąd serwera" },
+                //         { label: "Propozycja", description: "Propozycja polepszenia funkcjonalności serwera", value: "Propozycja" },
+                //         { label: "Inne", description: "Inny powód, niewymieniony powyżej", value: "Inne" }
+                //     ]),
+                new TextInputComponent()
+                    .setCustomId('error-form-reason')
+                    .setLabel("Powód zgłoszenia (wybierz z wymienionych)")
+                    .setStyle("SHORT")
+                    .setPlaceholder("Błąd bota / Błąd serwera / Propozycja / Inne")
+                    .setRequired(true),
                 new TextInputComponent()
                     .setCustomId("error-form-description")
                     .setLabel("Opis błędu/propoycji zmiany")
